@@ -1,23 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import { useRef, useState } from "react";
 
 function App() {
+  const [value, setValue] = useState("");
+
+  const handleChange = ({ target: { value } }) => setValue(value);
+  const inputRef = useRef(null);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <div className="p-8">
+      <div className="relative">
+        <input
+          type="text"
+          placeholder=" "
+          className="text-[16px] border-2 peer h-12 text-white selection:bg-[#fffff1]"
+          onChange={handleChange}
+          value={value}
+          ref={inputRef}
+        />
+        <span className="text-[8px] absolute left-1 top-0 peer-placeholder-shown:top-1 peer-placeholder-shown:text-[12px] transition-all">
+          Placeholder
+        </span>
+        <span
+          className="absolute top-3 left-1 text-[12px] pointer-events-none"
+          onClick={inputRef?.current?.focus}
         >
-          Learn React
-        </a>
-      </header>
+          {value}
+        </span>
+      </div>
     </div>
   );
 }
