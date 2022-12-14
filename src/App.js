@@ -12,7 +12,7 @@ function App() {
         <input
           type="text"
           placeholder=" "
-          className="text-[16px] border-2 peer h-12 text-white selection:bg-[#fffff1] w-48"
+          className="text-[16px] border-2 peer h-12 text-white selection:bg-[#fffff1] w-48 -tracking-[1.5px]"
           onChange={handleChange}
           value={value}
           ref={inputRef}
@@ -21,7 +21,7 @@ function App() {
           This will not zoom on ios
         </span>
         <span
-          className="absolute top-3 left-1 text-[12px] pointer-events-none"
+          className="absolute top-4 left-1 text-[12px] pointer-events-none"
           onClick={inputRef?.current?.focus}
         >
           {value}
